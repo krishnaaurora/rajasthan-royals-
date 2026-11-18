@@ -1,0 +1,20 @@
+monte_carlo:
+  default_simulations: 2500
+  random_seed: 42
+  scenarios:
+    final_over:
+      balls: 6
+      runs_required: 14
+      wickets_lost: 7
+    death_blitz:
+      balls: 18
+      runs_required: 42
+      wickets_lost: 5
+    powerplay_collapse:
+      balls: 96
+      runs_required: 140
+      wickets_lost: 3
+    super_over:
+      balls: 6
+      runs_required: 16
+      wickets_lost: 0

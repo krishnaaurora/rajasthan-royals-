@@ -1,0 +1,18 @@
+eligibility:
+  batter_min_hp_balls: 120
+  bowler_min_hp_balls: 150
+weights:
+  batting:
+    hp_sr: 0.40
+    hp_avg: 0.30
+    sr_delta: 0.20
+    dot_resistance: 0.10
+  bowling:
+    hp_econ: 0.40
+    hp_sr: 0.30
+    econ_delta: 0.20
+    dot_generation: 0.10
+volume_shrinkage:
+  benchmark_balls: 500
+  min_dampener: 0.70
+  max_dampener: 1.05

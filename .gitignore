@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Python virtualenvs and caches
+.venv/
+venv/
+ENV/
+__pycache__/
+*/__pycache__/
+**/*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*/.pytest_cache/
+
+# Environment and sensitive keys
+.env
+.env.local
+.env.*.local
+*.pem
+.neon
+
+# Build outputs
+dist/
+build/
+suprr-selector/frontend/dist/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+._*
+**/._*

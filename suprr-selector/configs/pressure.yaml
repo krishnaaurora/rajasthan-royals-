@@ -1,0 +1,17 @@
+thresholds:
+  low: 0.40
+  moderate: 0.60
+  high: 0.75
+  extreme: 0.85
+weights:
+  chase:
+    rrr_score: 0.55
+    wicket_stress: 0.35
+    base: 0.10
+  phase_multipliers:
+    death: 1.20
+    late_middle: 1.00
+    early_middle: 0.85
+    powerplay: 0.75
+  knockout_bonus: 0.10
+  tight_finish_bonus: 0.15

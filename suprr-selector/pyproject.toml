@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "suprr-selector"
+version = "2.0.0"
+description = "Context-Aware Bayesian Pressure Reliability Engine for Rajasthan Royals SupeRR Selector Season 2"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+    "pydantic>=2.0.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "lightgbm>=4.0.0",
+    "pyyaml>=6.0.0",
+    "scipy>=1.10.0"
+]
+
+[project.scripts]
+suprr = "suprr_selector.interfaces.cli.commands:main"

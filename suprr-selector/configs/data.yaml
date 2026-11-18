@@ -1,0 +1,13 @@
+raw_path: "data/raw"
+interim_path: "data/interim"
+processed_path: "data/processed"
+files:
+  competitions: "competitions.csv"
+  matches: "matches.csv"
+  teams: "teams.csv"
+  players: "competition_team_player_mapping.csv"
+  playing_eleven: "playing_eleven.csv"
+  ball_by_ball: "ball_by_ball.csv"
+validation:
+  min_deliveries: 200000
+  expected_columns: 33

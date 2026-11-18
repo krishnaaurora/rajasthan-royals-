@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Realistic Logo Draw Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #e50693;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    canvas {
+      width: 320px;
+      height: 345px;
+      display: block;
+    }
+    .badge {
+      margin-top: 24px;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="logoCanvas" width="556" height="600"></canvas>
+  <div class="badge">SupeRR Selector • Season 2</div>
+
+  <script>
+    const canvas = document.getElementById('logoCanvas');
+    const ctx = canvas.getContext('2d');
+    const W = 556;
+    const H = 600;
+
+    const img = new Image();
+    img.src = '/rr-crest-white-transparent.png';
+
+    // Offscreen mask canvas
+    const maskCanvas = document.createElement('canvas');
+    maskCanvas.width = W;
+    maskCanvas.height = H;
+    const maskCtx = maskCanvas.getContext('2d');
+
+    // Drawing paths definition (points series)
+    // 1. Crown finial & arch
+    // 2. Crown spikes & headband
+    // 3. Central Scepter
+    // 4. Left R loop & flourish
+    // 5. Right R loop & flourish
+    // 6. RAJASTHAN text wipe
+    // 7. ROYALS text wipe
+
+    const strokePaths = [
+      // Crown Top Finial
+      [
+        {x: 280, y: 60}, {x: 280, y: 95}
+      ],
+      // Crown Ermine Arch Left
+      [
+        {x: 280, y: 95}, {x: 230, y: 105}, {x: 195, y: 155}, {x: 230, y: 165}, {x: 280, y: 165}
+      ],
+      // Crown Ermine Arch Right
+      [
+        {x: 280, y: 95}, {x: 330, y: 105}, {x: 365, y: 155}, {x: 330, y: 165}, {x: 280, y: 165}
+      ],
+      // Crown Coronet & Headband
+      [
+        {x: 190, y: 175}, {x: 220, y: 140}, {x: 250, y: 165}, {x: 280, y: 135},
+        {x: 310, y: 165}, {x: 340, y: 140}, {x: 370, y: 175}, {x: 190, y: 175}, {x: 370, y: 175}
+      ],
+      // Central Scepter
+      [
+        {x: 280, y: 180}, {x: 280, y: 418}
+      ],
+      // Left 'R' Monogram (sweep through upper loop, then outer leg)
+      [
+        {x: 280, y: 215}, {x: 235, y: 215}, {x: 195, y: 235}, {x: 185, y: 270},
+        {x: 215, y: 295}, {x: 280, y: 295}, {x: 245, y: 335}, {x: 205, y: 370},
+        {x: 175, y: 395}, {x: 165, y: 415}
+      ],
+      // Right 'R' Monogram (mirrored)
+      [
+        {x: 280, y: 215}, {x: 325, y: 215}, {x: 365, y: 235}, {x: 375, y: 270},
+        {x: 345, y: 295}, {x: 280, y: 295}, {x: 315, y: 335}, {x: 355, y: 370},
+        {x: 385, y: 395}, {x: 395, y: 415}
+      ],
+      // "RAJASTHAN" wipe
+      [
+        {x: 140, y: 450}, {x: 420, y: 450}
+      ],
+      // "ROYALS" wipe
+      [
+        {x: 120, y: 510}, {x: 450, y: 510}
+      ]
+    ];
+
+    // Compute cumulative lengths for continuous animation
+    let totalLength = 0;
+    const pathLengths = strokePaths.map(pts => {
+      let len = 0;
+      for (let i = 0; i < pts.length - 1; i++) {
+        const dx = pts[i+1].x - pts[i].x;
+        const dy = pts[i+1].y - pts[i].y;
+        len += Math.sqrt(dx*dx + dy*dy);
+      }
+      totalLength += len;
+      return len;
+    });
+
+    let startTime = null;
+    const DURATION = 2200; // 2.2 seconds total draw
+
+    img.onload = () => {
+      requestAnimationFrame(render);
+    };
+
+    function render(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(1, elapsed / DURATION);
+
+      // Distance to draw
+      const targetDist = progress * totalLength;
+
+      // Clear main and mask
+      ctx.clearRect(0, 0, W, H);
+      maskCtx.clearRect(0, 0, W, H);
+
+      maskCtx.lineCap = 'round';
+      maskCtx.lineJoin = 'round';
+      maskCtx.strokeStyle = '#ffffff';
+
+      let currentDist = 0;
+      let penTip = null;
+
+      for (let pIdx = 0; pIdx < strokePaths.length; pIdx++) {
+        const pts = strokePaths[pIdx];
+        const pLen = pathLengths[pIdx];
+
+        // Custom brush thickness: wider for text wipes and crown
+        const strokeW = pIdx >= 7 ? 65 : (pIdx >= 4 ? 35 : 45);
+        maskCtx.lineWidth = strokeW;
+
+        if (currentDist + pLen <= targetDist) {
+          // Fully drawn segment
+          maskCtx.beginPath();
+          maskCtx.moveTo(pts[0].x, pts[0].y);
+          for (let i = 1; i < pts.length; i++) {
+            maskCtx.lineTo(pts[i].x, pts[i].y);
+          }
+          maskCtx.stroke();
+          currentDist += pLen;
+          penTip = pts[pts.length - 1];
+        } else if (currentDist < targetDist) {
+          // Partially drawn segment
+          const remainingInSeg = targetDist - currentDist;
+          maskCtx.beginPath();
+          maskCtx.moveTo(pts[0].x, pts[0].y);
+
+          let segDist = 0;
+          for (let i = 0; i < pts.length - 1; i++) {
+            const dx = pts[i+1].x - pts[i].x;
+            const dy = pts[i+1].y - pts[i].y;
+            const subLen = Math.sqrt(dx*dx + dy*dy);
+
+            if (segDist + subLen <= remainingInSeg) {
+              maskCtx.lineTo(pts[i+1].x, pts[i+1].y);
+              segDist += subLen;
+              penTip = pts[i+1];
+            } else {
+              const frac = (remainingInSeg - segDist) / subLen;
+              const curX = pts[i].x + dx * frac;
+              const curY = pts[i].y + dy * frac;
+              maskCtx.lineTo(curX, curY);
+              penTip = {x: curX, y: curY};
+              break;
+            }
+          }
+          maskCtx.stroke();
+          break;
+        }
+      }
+
+      // If finished, fill entire mask
+      if (progress >= 1.0) {
+        maskCtx.fillStyle = '#ffffff';
+        maskCtx.fillRect(0, 0, W, H);
+      }
+
+      // Now apply mask to the real image:
+      maskCtx.globalCompositeOperation = 'source-in';
+      maskCtx.drawImage(img, 0, 0, W, H);
+      maskCtx.globalCompositeOperation = 'source-over';
+
+      // Draw revealed image onto main canvas
+      ctx.drawImage(maskCanvas, 0, 0);
+
+      // Draw luminous pen spark at the tip while drawing
+      if (penTip && progress < 1.0) {
+        ctx.save();
+        ctx.shadowColor = '#ffffff';
+        ctx.shadowBlur = 12;
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(penTip.x, penTip.y, 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Outer golden glow
+        ctx.shadowColor = '#fff3a8';
+        ctx.shadowBlur = 20;
+        ctx.beginPath();
+        ctx.arc(penTip.x, penTip.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      if (progress < 1.0 || elapsed < 3500) {
+        requestAnimationFrame(render);
+      }
+    }
+  </script>
+</body>
+</html>
+

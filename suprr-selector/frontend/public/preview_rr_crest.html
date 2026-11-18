@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rajasthan Royals Crest Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #ea1985;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    .crest-wrapper {
+      position: relative;
+      width: 320px;
+      height: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Stroke draw keyframes */
+    .draw-stroke-1 {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: drawLine 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+    }
+
+    .draw-stroke-2 {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: drawLine 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+    }
+
+    .draw-stroke-3 {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawLine 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+    }
+
+    .fade-fill {
+      fill-opacity: 0;
+      animation: fillIn 0.8s ease 1.6s forwards;
+    }
+
+    .text-draw {
+      opacity: 0;
+      transform: translateY(6px);
+      animation: textReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+    }
+
+    @keyframes drawLine {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes fillIn {
+      to {
+        fill-opacity: 1;
+      }
+    }
+
+    @keyframes textReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="crest-wrapper">
+    <svg viewBox="0 0 340 460" width="100%" height="100%" style="overflow: visible;">
+      <!-- ==================== CROWN ==================== -->
+      <!-- Top Cross & Diamond Finial -->
+      <g class="draw-stroke-1">
+        <!-- Diamond finial -->
+        <polygon points="170,18 178,28 170,38 162,28" fill="#ffffff" stroke="#ffffff" stroke-width="2" class="fade-fill" />
+        <circle cx="170" cy="28" r="2.5" fill="#ea1985" />
+      </g>
+
+      <!-- Crown Ermine Dome (Scalloped Velvet Cap) -->
+      <path
+        d="M 125,75 
+           C 120,68 126,56 135,54 
+           C 138,44 148,40 156,42 
+           C 162,36 178,36 184,42 
+           C 192,40 202,44 205,54 
+           C 214,56 220,68 215,75 Z"
+        fill="#ffffff"
+        stroke="#ffffff"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+        class="draw-stroke-1 fade-fill"
+      />
+
+      <!-- Crown 5-Point Coronet with Fleur-de-lis & Pearls -->
+      <path
+        d="M 120,82
+           L 132,60 
+           L 145,76 
+           L 158,52 
+           L 170,74 
+           L 182,52 
+           L 195,76 
+           L 208,60 
+           L 220,82 Z"
+        fill="#ffffff"
+        stroke="#ffffff"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+        class="draw-stroke-2 fade-fill"
+      />
+
+      <!-- Headband Rim with Pearls -->
+      <path
+        d="M 118,84 Q 170,95 222,84 L 222,96 Q 170,107 118,96 Z"
+        fill="#ffffff"
+        stroke="#ffffff"
+        stroke-width="2"
+        class="draw-stroke-1 fade-fill"
+      />
+      <!-- Headband Jewels -->
+      <circle cx="135" cy="90" r="2.5" fill="#ea1985" />
+      <circle cx="152" cy="93" r="2.5" fill="#ea1985" />
+      <circle cx="170" cy="94" r="3" fill="#ea1985" />
+      <circle cx="188" cy="93" r="2.5" fill="#ea1985" />
+      <circle cx="205" cy="90" r="2.5" fill="#ea1985" />
+
+      <!-- ==================== RR INTERLOCKING MONOGRAM ==================== -->
+      <!-- Central Royal Pillar / Scepter -->
+      <path
+        d="M 166,114 L 174,114 L 174,272 L 166,272 Z"
+        fill="#ffffff"
+        stroke="#ffffff"
+        stroke-width="2"
+        class="draw-stroke-2 fade-fill"
+      />
+      <!-- Scepter Top and Bottom Serifs -->
+      <polygon points="163,114 177,114 170,106" fill="#ffffff" class="fade-fill" />
+      <polygon points="162,272 178,272 170,278" fill="#ffffff" class="fade-fill" />
+
+      <!-- Left Stylized Royal 'R' -->
+      <!-- Outer Contour -->
+      <path
+        d="M 166,134
+           C 118,134, 102,160, 102,185
+           C 102,212, 126,224, 166,224
+           M 166,178
+           C 138,178, 126,182, 115,200
+           C 102,222, 90,250, 102,266
+           C 112,276, 134,268, 150,252
+           L 166,238"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="6.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="draw-stroke-3"
+      />
+
+      <!-- Right Stylized Royal 'R' (Mirrored) -->
+      <path
+        d="M 174,134
+           C 222,134, 238,160, 238,185
+           C 238,212, 214,224, 174,224
+           M 174,178
+           C 202,178, 214,182, 225,200
+           C 238,222, 250,250, 238,266
+           C 228,276, 206,268, 190,252
+           L 174,238"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="6.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="draw-stroke-3"
+      />
+
+      <!-- Monogram Flourish Tails -->
+      <path
+        d="M 94,260 C 104,254, 120,262, 136,254"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="4.5"
+        stroke-linecap="round"
+        class="draw-stroke-2"
+      />
+      <path
+        d="M 246,260 C 236,254, 220,262, 204,254"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="4.5"
+        stroke-linecap="round"
+        class="draw-stroke-2"
+      />
+
+      <!-- ==================== TYPOGRAPHY ==================== -->
+      <!-- "RAJASTHAN" -->
+      <text
+        x="170"
+        y="322"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="'Cinzel', 'Times New Roman', serif"
+        font-size="22"
+        font-weight="700"
+        letter-spacing="9"
+        class="text-draw"
+      >
+        RAJASTHAN
+      </text>
+
+      <!-- "ROYALS" -->
+      <text
+        x="170"
+        y="364"
+        text-anchor="middle"
+        fill="#ffffff"
+        font-family="'Cinzel', 'Times New Roman', serif"
+        font-size="34"
+        font-weight="900"
+        letter-spacing="12"
+        class="text-draw"
+      >
+        ROYALS
+      </text>
+    </svg>
+  </div>
+
+</body>
+</html>
+

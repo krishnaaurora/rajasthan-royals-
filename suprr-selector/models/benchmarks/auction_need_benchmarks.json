@@ -1,0 +1,26 @@
+{
+  "LightGBM Regressor (Production)": {
+    "R2_Score": 0.9956,
+    "RMSE": 0.97,
+    "MAE": 0.5717,
+    "R2_Std": 0.0007
+  },
+  "XGBoost Regressor (Benchmark)": {
+    "R2_Score": 0.9962,
+    "RMSE": 0.899,
+    "MAE": 0.5349,
+    "R2_Std": 0.0008
+  },
+  "Random Forest Regressor (Ensemble)": {
+    "R2_Score": 0.9917,
+    "RMSE": 1.3346,
+    "MAE": 0.8135,
+    "R2_Std": 0.0008
+  },
+  "Ridge Regression (Linear Baseline)": {
+    "R2_Score": 0.9879,
+    "RMSE": 1.5957,
+    "MAE": 1.1273,
+    "R2_Std": 0.005
+  }
+}

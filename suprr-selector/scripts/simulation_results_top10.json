@@ -1,0 +1,186 @@
+{
+  "batters": {
+    "7897": {
+      "name": "Namboori Tilak Varma",
+      "hp_balls": 276,
+      "hp_sr": 201.09,
+      "delta_sr": 65.34,
+      "pri_score": 76.83,
+      "sim_win_rate": 21.6,
+      "jaipur_sim_win_rate": 7.7
+    },
+    "6396": {
+      "name": "Tim David",
+      "hp_balls": 393,
+      "hp_sr": 199.49,
+      "delta_sr": 33.27,
+      "pri_score": 75.41,
+      "sim_win_rate": 20.3,
+      "jaipur_sim_win_rate": 6.4
+    },
+    "20702": {
+      "name": "Tristan Stubbs",
+      "hp_balls": 253,
+      "hp_sr": 194.47,
+      "delta_sr": 58.3,
+      "pri_score": 72.55,
+      "sim_win_rate": 24.1,
+      "jaipur_sim_win_rate": 9.5
+    },
+    "3926": {
+      "name": "Rahul Tewatia",
+      "hp_balls": 263,
+      "hp_sr": 179.47,
+      "delta_sr": 60.4,
+      "pri_score": 71.7,
+      "sim_win_rate": 14.0,
+      "jaipur_sim_win_rate": 4.7
+    },
+    "4708": {
+      "name": "Rinku Singh",
+      "hp_balls": 326,
+      "hp_sr": 191.72,
+      "delta_sr": 52.48,
+      "pri_score": 70.03,
+      "sim_win_rate": 18.0,
+      "jaipur_sim_win_rate": 5.3
+    },
+    "1077": {
+      "name": "David Miller",
+      "hp_balls": 211,
+      "hp_sr": 191.0,
+      "delta_sr": 50.23,
+      "pri_score": 67.37,
+      "sim_win_rate": 20.2,
+      "jaipur_sim_win_rate": 5.3
+    },
+    "8101": {
+      "name": "Ashutosh Sharma",
+      "hp_balls": 182,
+      "hp_sr": 191.76,
+      "delta_sr": 52.77,
+      "pri_score": 62.79,
+      "sim_win_rate": 17.9,
+      "jaipur_sim_win_rate": 6.2
+    },
+    "1699": {
+      "name": "Suryakumar Yadav",
+      "hp_balls": 171,
+      "hp_sr": 219.88,
+      "delta_sr": 57.02,
+      "pri_score": 62.1,
+      "sim_win_rate": 32.5,
+      "jaipur_sim_win_rate": 12.0
+    },
+    "2436": {
+      "name": "Dasun Shanaka",
+      "hp_balls": 205,
+      "hp_sr": 180.49,
+      "delta_sr": 57.17,
+      "pri_score": 60.67,
+      "sim_win_rate": 14.0,
+      "jaipur_sim_win_rate": 3.5
+    },
+    "813": {
+      "name": "Jos Buttler",
+      "hp_balls": 99,
+      "hp_sr": 236.36,
+      "delta_sr": 83.84,
+      "pri_score": 60.04,
+      "sim_win_rate": 39.1,
+      "jaipur_sim_win_rate": 18.3
+    }
+  },
+  "bowlers": {
+    "3644": {
+      "name": "Kuldeep Yadav",
+      "hp_balls": 245,
+      "hp_econ": 6.96,
+      "delta_econ": 1.21,
+      "pri_score": 70.76,
+      "sim_defense_rate": 95.0,
+      "jaipur_sim_defense_rate": 97.9
+    },
+    "6256": {
+      "name": "Varun Chakravarthy",
+      "hp_balls": 311,
+      "hp_econ": 7.08,
+      "delta_econ": 1.09,
+      "pri_score": 69.73,
+      "sim_defense_rate": 94.9,
+      "jaipur_sim_defense_rate": 97.4
+    },
+    "2933": {
+      "name": "Jasprit Bumrah",
+      "hp_balls": 405,
+      "hp_econ": 7.23,
+      "delta_econ": 0.05,
+      "pri_score": 67.7,
+      "sim_defense_rate": 93.4,
+      "jaipur_sim_defense_rate": 95.1
+    },
+    "781": {
+      "name": "Sunil Narine",
+      "hp_balls": 177,
+      "hp_econ": 5.8,
+      "delta_econ": 1.2,
+      "pri_score": 65.66,
+      "sim_defense_rate": 97.3,
+      "jaipur_sim_defense_rate": 98.6
+    },
+    "2876": {
+      "name": "Axar Patel",
+      "hp_balls": 276,
+      "hp_econ": 7.35,
+      "delta_econ": 0.6,
+      "pri_score": 63.91,
+      "sim_defense_rate": 93.8,
+      "jaipur_sim_defense_rate": 97.1
+    },
+    "5979": {
+      "name": "Abrar Ahmed",
+      "hp_balls": 124,
+      "hp_econ": 4.6,
+      "delta_econ": 2.49,
+      "pri_score": 61.33,
+      "sim_defense_rate": 98.2,
+      "jaipur_sim_defense_rate": 99.2
+    },
+    "1612": {
+      "name": "Yuzvendra Chahal",
+      "hp_balls": 310,
+      "hp_econ": 8.03,
+      "delta_econ": 0.69,
+      "pri_score": 60.03,
+      "sim_defense_rate": 92.3,
+      "jaipur_sim_defense_rate": 96.0
+    },
+    "4722": {
+      "name": "Rashid Khan",
+      "hp_balls": 430,
+      "hp_econ": 7.77,
+      "delta_econ": -0.4,
+      "pri_score": 58.6,
+      "sim_defense_rate": 93.8,
+      "jaipur_sim_defense_rate": 97.1
+    },
+    "7696": {
+      "name": "Mohammad Wasim",
+      "hp_balls": 70,
+      "hp_econ": 6.17,
+      "delta_econ": 3.03,
+      "pri_score": 53.54,
+      "sim_defense_rate": 97.0,
+      "jaipur_sim_defense_rate": 97.6
+    },
+    "6355": {
+      "name": "Shaheen Afridi",
+      "hp_balls": 218,
+      "hp_econ": 7.35,
+      "delta_econ": 0.84,
+      "pri_score": 52.73,
+      "sim_defense_rate": 93.7,
+      "jaipur_sim_defense_rate": 95.5
+    }
+  }
+}
