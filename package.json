@@ -1,4 +1,12 @@
 {
+  "name": "rajasthan-royals-suprr-selector",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd suprr-selector/frontend && npm install && npm run build",
+    "dev": "cd suprr-selector/frontend && npm run dev",
+    "preview": "cd suprr-selector/frontend && npm run preview"
+  },
   "devDependencies": {
     "puppeteer": "^25.17.0"
   },
